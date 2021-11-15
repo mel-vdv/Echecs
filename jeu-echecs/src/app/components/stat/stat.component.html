@@ -1,0 +1,11 @@
+<a routerLink="/game"><button>retour au jeu</button></a> 
+<button (click)="deco()">me deconnecter</button>
+<h2>victoires:</h2>
+<ul *ngFor="let win of listWin">
+    <li>{{win.pseudo}} ({{win.date}})</li>
+</ul>
+
+<h2>perdu:</h2>
+<ul *ngFor="let lost of listLost">
+    <li>{{lost.pseudo}} ({{lost.date}})</li>
+</ul>

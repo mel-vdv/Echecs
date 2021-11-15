@@ -1,0 +1,114 @@
+.jeu {
+    width: 53vh;
+    height: 53vh;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+}
+.jeu div {
+    border: 0.3vh solid black; 
+    width: 6vh;
+    height: 6vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.jeu div img{
+    height: 5vh;
+}
+
+.a{
+    grid-column: 1;
+}
+.b{
+    grid-column: 2;
+}
+.c{
+    grid-column: 3;
+}
+.d{
+    grid-column: 4;
+}
+.e{
+    grid-column: 5;
+}
+.f{
+    grid-column: 6;
+}
+.g{
+    grid-column: 7;
+}
+.h{
+    grid-column: 8;
+}
+.noir .un{
+    grid-row:1;
+}
+.noir .deux{
+    grid-row:2;
+}
+.noir .trois{
+    grid-row:3;
+}
+.noir .quatre{
+    grid-row:4;
+}
+.noir .cinq{
+    grid-row:5;
+}
+.noir .six{
+    grid-row:6;
+}
+.noir .sept{
+    grid-row:7;
+}
+.noir .huit{
+    grid-row:8;
+}
+.blanc .un{
+    grid-row:8;
+}
+.blanc .deux{
+    grid-row:7;
+}
+.blanc .trois{
+    grid-row:6;
+}
+.blanc .quatre{
+    grid-row:5;
+}
+.blanc .cinq{
+    grid-row:4;
+}
+.blanc .six{
+    grid-row:3;
+}
+.blanc .sept{
+    grid-row:2;
+}
+.blanc .huit{
+    grid-row:1;
+}
+.mortsBlancs, .mortsNoirs{
+    width: 52vh;
+    height: 12vh;
+    border: black 0.5vh solid;
+    display: flex;
+    flex-wrap: wrap;
+}
+.mortsBlancs img, .mortsNoirs img{
+    height: 5vh;
+}
+.clic1ok{
+    background-color: rgb(241, 212, 165);
+}
+.clicError{
+    background-color:red;
+}
+.normal{
+    background-color: white;
+}
+.echecAuRoi{
+    color: red;
+    font-weight: bold;
+}

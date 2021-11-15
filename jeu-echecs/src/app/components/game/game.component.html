@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeu d'échecs</title>
+
+</head>
+
+<body>
+    <h1>bienvenue {{quiEstCo}}</h1>
+
+    <button (click)='deco()'> se déconnecter</button>
+    <br>
+    <br>
+    <button (click)='seRendre()'>se rendre</button>
+    <br> <br>
+   <a routerLink="/stat"><button>mes statistiques</button></a> 
+ 
+    <div *ngIf="statut==='enCours'">
+       <p>PARTIE NUMERO {{numeroPartie}}</p> 
+       <p>joueur noir: {{noir}}</p>
+       <p>joueur blanc : {{blanc}}</p>
+       <p>c'est au tour de {{auTourDe}} de jouer...</p>
+       <div *ngIf="echec" class="echecAuRoi">ECHEC AU ROI
+       </div>
+
+    </div>
+    <!--///////////////////////////     JEU DES BLANCS      ///////////////////////////////////////////////////-->
+    <div *ngIf="statut==='enCours'&& couleur==='blanc'">
+        <div class="mortsBlancs">
+            <div *ngFor='let mortBlanc of mortsBlancs'>
+                <div>
+                    <img src="./../../../assets/{{mortBlanc}}.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div  class="jeu blanc">
+            <div class="{{carre.lettre}} {{carre.chiffrestring}} {{carre.classe}}" *ngFor='let carre of cases'>
+                <img (click)='toucher(carre.couleur,carre.case,carre.piece,carre.type,carre.chiffre,carre.lettre)'
+                    src="./../../../assets/{{carre.piece}}.png" alt="">
+            </div>
+        </div>
+
+
+        <div  class="mortsNoirs">
+            <div *ngFor='let mortNoir of mortsNoirs'>
+                <div>
+                    <img src="./../../../assets/{{mortNoir}}.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--//////////////////////////      JEU DES NOIRS      ///////////////////////////////////////////////////-->
+
+    <div *ngIf="statut==='enCours'&& couleur==='noir'">
+        <div  class="mortsNoirs">
+            <div *ngFor='let mortNoir of mortsNoirs'>
+                <div>
+                    <img src="./../../../assets/{{mortNoir}}.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="jeu noir">
+            <div class="{{carre.lettre}} {{carre.chiffrestring}} {{carre.classe}}" *ngFor='let carre of cases'>
+                <img (click)='toucher(carre.couleur,carre.case,carre.piece,carre.type,carre.chiffre,carre.lettre)'
+                    src="./../../../assets/{{carre.piece}}.png" alt="">
+            </div>
+        </div>
+        <div  class="mortsBlancs">
+            <div *ngFor='let mortBlanc of mortsBlancs'>
+                <div>
+                    <img src="./../../../assets/{{mortBlanc}}.png" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!----------------------------   FIN DE PARTIE  ----------------------->
+    <!--------------------------------------------------------------------->
+    <div *ngIf="statut==='finie'">
+        {{messageDeFin}}
+    </div>
+    <!------------------------------------------------------------------------>
+
+</body>
+
+</html>
